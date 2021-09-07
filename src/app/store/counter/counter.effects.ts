@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { SnackbarService } from '../../shared/snackbar.service';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class CounterEffects {
   showSnackbar$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Counter] Reset'),
-      switchMap(() => {
+      map(() => {
         this.snackbar.openSnackBar('Your counter has been reset.');
         return EMPTY;
       })

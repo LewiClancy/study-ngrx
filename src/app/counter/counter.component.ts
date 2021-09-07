@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { SnackbarService } from '../shared/snackbar.service';
 import { AppState } from '../store';
 import { decrement, increment, reset } from '../store/counter/counter.actions';
 import { count } from '../store/counter/counter.selectors';
@@ -13,7 +15,10 @@ import { count } from '../store/counter/counter.selectors';
 export class CounterComponent implements OnInit {
   count$!: Observable<number>;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private snackbar: SnackbarService,
+  ) {}
 
   ngOnInit() {
     this.count$ = this.store.select(count);

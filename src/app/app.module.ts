@@ -10,10 +10,12 @@ import { reducers } from './store';
 import { CounterComponent } from './counter/counter.component';
 import { CounterEffects } from './store/counter';
 import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     StoreModule.forRoot(reducers, {
       runtimeChecks: {

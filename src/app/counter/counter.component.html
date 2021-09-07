@@ -1,0 +1,19 @@
+<div class="container mat-elevation-z2">
+  <div class="content">
+    <p>
+      <span class="mat-headline">Current value : </span>
+      <span class="value">{{count$ | async}}</span>
+    </p>
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="onIncrement()">
+        Add
+      </button>
+      <button mat-raised-button color="accent" (click)="onDecrement()">
+        Decrement
+      </button>
+      <button mat-raised-button color="warn" (click)="onReset()">
+        Reset
+      </button>
+    </div>
+  </div>
+</div>

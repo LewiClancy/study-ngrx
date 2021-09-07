@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { reducers } from './store';
 import { CounterComponent } from './counter/counter.component';
+import { CounterEffects } from './store/counter';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import { CounterComponent } from './counter/counter.component';
         strictStateSerializability: true
       }
     }),
+    EffectsModule.forRoot([CounterEffects]),
     MaterialModule
   ],
   declarations: [AppComponent, CounterComponent],
